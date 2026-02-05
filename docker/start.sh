@@ -1,11 +1,19 @@
 #!/bin/bash
 
+echo "Preparing Laravel..."
+
+php artisan config:clear
+php artisan cache:clear
+
 echo "Waiting for database..."
-sleep 5
 
-echo "Running migrations..."
+until php artisan migrate --force; do
+  echo "Database not ready... retrying"
+  sleep 3
+done
 
-php artisan migrate:fresh --seed --force
+echo "Running seeders..."
+php artisan db:seed --force
 
 echo "Caching configuration..."
 php artisan config:cache
