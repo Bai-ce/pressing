@@ -4,7 +4,8 @@ echo "Waiting for database..."
 sleep 5
 
 echo "Running migrations..."
-php artisan migrate --force
+
+php artisan migrate:fresh --seed --force
 
 echo "Caching configuration..."
 php artisan config:cache
