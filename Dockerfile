@@ -1,3 +1,4 @@
+# Utiliser PHP 8.4 avec Apache
 FROM php:8.4-apache
 
 # Installer les dépendances système
@@ -14,7 +15,7 @@ RUN apt-get update && apt-get install -y \
     npm \
     && rm -rf /var/lib/apt/lists/*
 
-# Installer les extensions PHP
+# Installer les extensions PHP pour Laravel
 RUN docker-php-ext-install \
     pdo \
     pdo_mysql \
@@ -25,64 +26,56 @@ RUN docker-php-ext-install \
     gd \
     zip
 
-# Copier Composer depuis l'image officielle
+# Installer Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Définir le répertoire de travail
 WORKDIR /var/www/html
 
-# Copier les fichiers de dépendances
+# Copier composer files
 COPY composer.json composer.lock ./
-COPY package*.json ./
 
-# Installer les dépendances PHP (sans scripts et autoloader pour l'instant)
+# Installer dépendances PHP
 RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
 
-# Installer les dépendances Node.js
+# Copier package.json
+COPY package*.json ./
+
+# Installer dépendances Node
 RUN npm install
 
-# Copier tous les fichiers de l'application
+# Copier le reste du projet
 COPY . .
 
-# S'assurer que le .htaccess est présent dans public
-COPY .htaccess public/.htaccess 2>/dev/null || true
-
-# Générer l'autoloader optimisé
+# Générer autoloader
 RUN composer dump-autoload --optimize --no-dev
 
-# Build des assets avec Vite
+# Build assets
 RUN npm run build
 
-# Nettoyer node_modules pour réduire la taille de l'image
+# Nettoyer node_modules
 RUN rm -rf node_modules
 
-# Créer les répertoires nécessaires et définir les permissions
+# Créer dossiers et permissions
 RUN mkdir -p storage/framework/sessions \
     storage/framework/views \
     storage/framework/cache \
     storage/logs \
     bootstrap/cache \
-    && chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html \
+    && chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
-# Configurer Apache pour écouter sur le port 8080
-RUN sed -i 's/Listen 80/Listen 8080/g' /etc/apache2/ports.conf
-
-# Activer les modules Apache nécessaires
+# Activer mod_rewrite
 RUN a2enmod rewrite
 
-# Copier la configuration Apache
+# Copier config Apache
 COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
 
-# Copier le script de démarrage
-COPY docker/start.sh /usr/local/bin/start.sh
+# Exposer port 80
+EXPOSE 80
 
-# Rendre le script exécutable
+# Script de démarrage
+COPY docker/start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh
 
-# Exposer le port 8080
-EXPOSE 8080
-
-# Commande de démarrage
 CMD ["/usr/local/bin/start.sh"]
