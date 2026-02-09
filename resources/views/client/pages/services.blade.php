@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-sky-600 to-sky-800 py-20">
+    <section class="relative bg-gradient-to-r from-sky-600 to-sky-700 py-20">
         <div class="absolute inset-0 bg-black/30"></div>
         <div class="container relative z-10 mx-auto px-4">
             <div class="text-center text-white">
@@ -40,7 +40,7 @@
                 <div class="swiper-wrapper">
                     @forelse($services as $service)
                         <div class="swiper-slide">
-                            <div class="mx-auto max-w-sm rounded-2xl border border-gray-100 bg-white p-3 shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                            <div class="mx-auto max-w-sm rounded-2xl border border-gray-100 bg-white p-3 transition-shadow duration-300 hover:shadow-xl">
                                 <!-- Image Container -->
                                 <div class="group relative h-64 w-full overflow-hidden rounded-2xl">
                                     @if ($service->image)
@@ -111,8 +111,7 @@
                         </svg>
                     </button>
 
-                    <!-- Pagination -->
-                    <div class="swiper-pagination mt-8"></div>
+
                 @endif
             </div>
         </div>
@@ -129,7 +128,7 @@
             <!-- Steps Container -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
                 <!-- Connecting Line -->
-                <div class="hidden lg:block absolute top-6 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-sky-300 to-transparent"></div>
+                <div class="hidden lg:block absolute top-6 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-sky-600 to-transparent"></div>
 
                 <!-- Step 1 -->
                 <div class="flex flex-col items-center relative z-10">
@@ -248,7 +247,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="bg-gradient-to-r from-sky-600 to-sky-800 py-16">
+    <section class="bg-gradient-to-r from-sky-600 to-sky-700 py-16">
         <div class="container mx-auto px-4 text-center">
             <h2 class="mb-4 text-3xl font-bold text-white md:text-4xl">Prêt à Commander ?</h2>
             <p class="mx-auto mb-8 max-w-2xl text-lg text-white/90">
@@ -288,10 +287,6 @@
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
                 },
                 breakpoints: {
                     640: {

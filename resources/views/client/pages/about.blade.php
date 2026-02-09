@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Section Hero -->
-    <section class="relative bg-gradient-to-r from-sky-600 to-sky-800 py-20">
+    <section class="relative bg-gradient-to-r from-sky-600 to-sky-700 py-20">
         <div class="absolute inset-0 bg-black/30"></div>
         <div class="container relative z-10 mx-auto px-4">
             <div class="text-center text-white">
@@ -295,7 +295,7 @@
     </section>
 
 <!-- Appel à l'Action -->
-<section class="bg-gradient-to-r from-sky-600 to-sky-800 py-16">
+<section class="bg-gradient-to-r from-sky-600 to-sky-700 py-16">
     <div class="container mx-auto px-4 flex flex-col items-center gap-6 md:flex-row md:justify-between">
         <div class="text-center md:text-left">
             <h3 class="text-3xl md:text-4xl font-bold text-white">Zone de Livraison</h3>

@@ -3,7 +3,7 @@
 @section('title', 'Suivi de Commande')
 
 @section('content')
-    <section class="relative bg-gradient-to-r from-sky-600 to-sky-800 py-20">
+    <section class="relative bg-gradient-to-r from-sky-600 to-sky-700 py-20">
         <div class="absolute inset-0 bg-black/30"></div>
         <div class="container relative z-10 mx-auto px-4">
             <div class="text-center text-white">

@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="min-h-screen bg-gray-50 pb-20">
-    <section class="relative bg-gradient-to-r from-sky-600 to-sky-800 py-20 mb-30">
+    <section class="relative bg-gradient-to-r from-sky-600 to-sky-700 py-20 mb-30">
     <div class="absolute inset-0 bg-black/30"></div>
     <div class="container mx-auto px-4 relative z-10">
         <div class="text-center text-white">
