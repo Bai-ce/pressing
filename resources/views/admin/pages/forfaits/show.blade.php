@@ -10,11 +10,11 @@
             <div class="flex items-center justify-between">
                 <div>
                     <h1 class="text-2xl font-bold">{{ $forfait->nom }}</h1>
-                    <p class="text-blue-100 mt-1">{{ $forfait->description ?? 'Forfait pressing' }}</p>
+                    <p class="text-sky-100 mt-1">{{ $forfait->description ?? 'Forfait pressing' }}</p>
                 </div>
                 <div class="text-right">
                     <div class="text-3xl font-bold">{{ number_format($forfait->montant, 0, ',', ' ') }}</div>
-                    <div class="text-blue-100">XOF</div>
+                    <div class="text-sky-100">XOF</div>
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
                     </span>
                 @endif
 
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-sky-100 text-sky-800">
                     Ordre: {{ $forfait->ordre }}
                 </span>
             </div>
@@ -91,11 +91,11 @@
             </div>
 
             <!-- Statistiques -->
-            <div class="bg-blue-50 rounded-xl p-4 mb-6">
+            <div class="bg-sky-50 rounded-xl p-4 mb-6">
                 <h3 class="font-semibold text-gray-800 mb-3">Statistiques</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="text-center">
-                        <div class="text-2xl font-bold text-blue-600">{{ $forfait->abonnements()->count() }}</div>
+                        <div class="text-2xl font-bold text-sky-600">{{ $forfait->abonnements()->count() }}</div>
                         <div class="text-sm text-gray-600">Abonnements total</div>
                     </div>
                     <div class="text-center">
@@ -116,7 +116,7 @@
             <!-- Actions -->
             <div class="flex flex-wrap gap-3">
                 @if(auth()->user()->role === 'ADMIN')
-                <a href="{{ route('admin.forfaits.edit', $forfait) }}" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                <a href="{{ route('admin.forfaits.edit', $forfait) }}" class="inline-flex items-center gap-2 px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                     </svg>

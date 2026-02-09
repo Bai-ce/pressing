@@ -13,9 +13,34 @@ class UserController extends Controller
     /**
      * Affiche la liste des utilisateurs
      */
-    public function index(): View
+    public function index(Request $request): View
     {
-        $users = User::latest()->paginate(10);
+        $query = User::query();
+
+        // Filtre par rôle
+        if ($request->filled('role')) {
+            $query->where('role', $request->role);
+        }
+
+        // Filtre par date d'inscription
+        if ($request->filled('date_debut')) {
+            $query->whereDate('created_at', '>=', $request->date_debut);
+        }
+        if ($request->filled('date_fin')) {
+            $query->whereDate('created_at', '<=', $request->date_fin);
+        }
+
+        // Recherche par nom, email ou téléphone
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('email', 'like', "%{$search}%")
+                  ->orWhere('telephone', 'like', "%{$search}%");
+            });
+        }
+
+        $users = $query->latest()->paginate(10)->withQueryString();
         return view('admin.pages.user.list', compact('users'));
     }
 

@@ -11,9 +11,34 @@ class ForfaitController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $forfaits = Forfait::ordonne()->get();
+        $query = Forfait::query();
+
+        // Filtre par statut actif
+        if ($request->filled('actif')) {
+            $query->where('actif', $request->actif === '1');
+        }
+
+        // Filtre par popularité
+        if ($request->filled('est_populaire')) {
+            $query->where('est_populaire', $request->est_populaire === '1');
+        }
+
+        // Recherche par nom
+        if ($request->filled('search')) {
+            $query->where('nom', 'like', "%{$request->search}%");
+        }
+
+        // Filtre par prix
+        if ($request->filled('prix_min')) {
+            $query->where('montant', '>=', $request->prix_min);
+        }
+        if ($request->filled('prix_max')) {
+            $query->where('montant', '<=', $request->prix_max);
+        }
+
+        $forfaits = $query->ordonne()->get();
         return view('admin.pages.forfaits.index', compact('forfaits'));
     }
 

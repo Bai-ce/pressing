@@ -170,13 +170,51 @@ class AbonnementControleur extends Controller
      * Liste des abonnements pour l'admin
      * GET /admin/abonnements
      */
-    public function adminIndex()
+    public function adminIndex(Request $request)
     {
-        $abonnements = Abonnement::with(['utilisateur', 'forfait'])
-            ->orderBy('created_at', 'desc')
-            ->paginate(15);
+        $query = Abonnement::with(['utilisateur', 'forfait']);
 
-        return view('admin.pages.abonnements.index', compact('abonnements'));
+        // Filtre par état
+        if ($request->filled('etat')) {
+            $query->where('etat', $request->etat);
+        }
+
+        // Filtre par forfait
+        if ($request->filled('forfait_id')) {
+            $query->where('forfait_id', $request->forfait_id);
+        }
+
+        // Filtre par date d'expiration
+        if ($request->filled('expiration')) {
+            switch ($request->expiration) {
+                case 'expire':
+                    $query->where('date_expiration', '<', now());
+                    break;
+                case 'bientot':
+                    $query->whereBetween('date_expiration', [now(), now()->addDays(7)]);
+                    break;
+                case 'valide':
+                    $query->where('date_expiration', '>', now()->addDays(7));
+                    break;
+            }
+        }
+
+        // Recherche par nom client
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->whereHas('utilisateur', function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('email', 'like', "%{$search}%");
+            });
+        }
+
+        $abonnements = $query->orderBy('created_at', 'desc')
+            ->paginate(15)
+            ->withQueryString();
+
+        $forfaits = Forfait::all();
+
+        return view('admin.pages.abonnements.index', compact('abonnements', 'forfaits'));
     }
 
     /**

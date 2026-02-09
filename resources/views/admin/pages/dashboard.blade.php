@@ -40,7 +40,7 @@
             </div>
             <div class="mt-4 flex gap-2 text-xs">
                 <span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full">{{ $stats['commandesPret'] }} en attente</span>
-                <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full">{{ $stats['commandesEnCours'] }} en cours</span>
+                <span class="px-2 py-1 bg-sky-100 text-sky-700 rounded-full">{{ $stats['commandesEnCours'] }} en cours</span>
             </div>
         </div>
 
@@ -137,7 +137,7 @@
                                 <p class="font-semibold text-gray-800">{{ number_format($commande->montantTotal, 0, ',', ' ') }} XOF</p>
                                 <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium
                                     @switch($commande->statut)
-                                        @case('EN_COURS') bg-blue-100 text-blue-700 @break
+                                        @case('EN_COURS') bg-sky-100 text-sky-700 @break
                                         @case('PRET') bg-green-100 text-green-700 @break
                                         @case('LIVREE') bg-purple-100 text-purple-700 @break
                                         @case('ANNULEE') bg-red-100 text-red-700 @break
@@ -157,37 +157,7 @@
             </div>
         </div>
 
-        <!-- Paiements récents -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-            <div class="p-6 border-b border-gray-100">
-                <div class="flex items-center justify-between">
-                    <h3 class="text-lg font-semibold text-gray-800">Paiements récents</h3>
-                    <a href="{{ route('paiements.index') }}" class="text-sm text-sky-600 hover:text-sky-700 font-medium">
-                        Voir tout →
-                    </a>
-                </div>
-            </div>
-            <div class="divide-y divide-gray-100">
-                @forelse($paiementsRecents as $paiement)
-                    <div class="p-4 hover:bg-gray-50 transition-colors">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="font-medium text-gray-800">{{ $paiement->commande->numSuivi ?? 'N/A' }}</p>
-                                <p class="text-sm text-gray-500">{{ $paiement->commande->user->name ?? 'Client' }}</p>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-semibold text-green-600">+{{ number_format($paiement->montant, 0, ',', ' ') }} XOF</p>
-                                <p class="text-xs text-gray-400">{{ $paiement->moyenPaiement ?? 'Mobile' }}</p>
-                            </div>
-                        </div>
-                    </div>
-                @empty
-                    <div class="p-6 text-center text-gray-500">
-                        Aucun paiement récent
-                    </div>
-                @endforelse
-            </div>
-        </div>
+
     </div>
 
 

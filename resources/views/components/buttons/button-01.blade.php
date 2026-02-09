@@ -1,6 +1,6 @@
 <div class="flex items-center gap-5">
   <button
-    class="inline-flex items-center gap-2 px-4 py-3 text-sm font-medium text-white transition rounded-lg bg-brand-500 shadow-theme-xs hover:bg-brand-600"
+    class="inline-flex items-center gap-2 px-4 py-3 text-sm font-medium text-white transition rounded-lg bg-sky-600 shadow-theme-xs hover:bg-sky-700"
   >
     {{ $slot }}
   </button>

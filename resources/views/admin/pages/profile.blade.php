@@ -13,7 +13,7 @@
         <!-- Carte profil -->
         <div class="lg:col-span-1">
             <div class="rounded-2xl border border-gray-200 bg-white p-6 text-center">
-                <div class="w-24 h-24 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div class="w-24 h-24 bg-gradient-to-r from-sky-500 to-sky-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span class="text-3xl font-bold text-white">{{ $user->getInitials() }}</span>
                 </div>
                 <h2 class="text-xl font-bold text-gray-900">{{ $user->name }}</h2>
@@ -58,7 +58,7 @@
             <!-- Informations du profil -->
             <div class="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
                 <h2 class="mb-6 text-xl font-semibold text-gray-800 flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 mr-2 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                     </svg>
                     Informations du profil
@@ -95,13 +95,14 @@
 
                         <div class="md:col-span-2">
                             <x-input-label for="adresse" :value="__('Adresse')" />
-                            <textarea id="adresse" name="adresse" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Quartier, rue, repère...">{{ old('adresse', $user->adresse) }}</textarea>
+                            <textarea id="adresse" name="adresse" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500" placeholder="Quartier, rue, repère...">{{ old('adresse', $user->adresse) }}</textarea>
                             <x-input-error :messages="$errors->get('adresse')" class="mt-2" />
+                        </div>
                         </div>
                     </div>
 
                     <div class="mt-6 flex justify-end">
-                        <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-700">
+                        <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-lg bg-sky-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-sky-700">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
@@ -114,7 +115,7 @@
             <!-- Changement de mot de passe -->
             <div class="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
                 <h2 class="mb-6 text-xl font-semibold text-gray-800 flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 mr-2 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                     </svg>
                     Changer le mot de passe

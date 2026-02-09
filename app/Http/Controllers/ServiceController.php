@@ -6,6 +6,7 @@ use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use App\Models\Service;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,9 +15,38 @@ class ServiceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
-        $services = Service::withCount('articles')->latest()->paginate(10);
+        $query = Service::withCount('articles');
+
+        // Recherche par nom
+        if ($request->filled('search')) {
+            $query->where('nom', 'like', "%{$request->search}%");
+        }
+
+        // Tri par nombre d'articles
+        if ($request->filled('tri')) {
+            switch ($request->tri) {
+                case 'articles_asc':
+                    $query->orderBy('articles_count', 'asc');
+                    break;
+                case 'articles_desc':
+                    $query->orderBy('articles_count', 'desc');
+                    break;
+                case 'nom_asc':
+                    $query->orderBy('nom', 'asc');
+                    break;
+                case 'nom_desc':
+                    $query->orderBy('nom', 'desc');
+                    break;
+                default:
+                    $query->latest();
+            }
+        } else {
+            $query->latest();
+        }
+
+        $services = $query->paginate(10)->withQueryString();
         return view('admin.pages.service.list', compact('services'));
     }
 

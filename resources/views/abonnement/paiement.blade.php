@@ -55,24 +55,6 @@
             </div>
         </div>
 
-        <!-- Moyens de paiement -->
-        <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
-            <h3 class="font-semibold text-gray-800 mb-4">Moyens de paiement acceptés</h3>
-            <div class="flex flex-wrap justify-center gap-4">
-                <div class="flex items-center gap-2 bg-yellow-50 px-4 py-2 rounded-lg">
-                    <span class="font-semibold text-yellow-700">MTN MoMo</span>
-                </div>
-                <div class="flex items-center gap-2 bg-sky-50 px-4 py-2 rounded-lg">
-                    <span class="font-semibold text-sky-700">Moov Money</span>
-                </div>
-                <div class="flex items-center gap-2 bg-cyan-50 px-4 py-2 rounded-lg">
-                    <span class="font-semibold text-cyan-700">Wave</span>
-                </div>
-                <div class="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg">
-                    <span class="font-semibold text-gray-700">Visa / Mastercard</span>
-                </div>
-            </div>
-        </div>
 
         <!-- Bouton de paiement -->
         <div class="text-center">
@@ -83,16 +65,6 @@
                 Payer {{ number_format($forfait->montant, 0, ',', ' ') }} XOF
             </button>
 
-            <p class="text-gray-500 text-sm mt-4">
-                <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                </svg>
-                Paiement sécurisé par KKiaPay
-            </p>
-
-            <a href="{{ route('abonnement.index') }}" class="inline-block mt-6 text-gray-600 hover:text-gray-900 transition-colors">
-                ← Retour aux forfaits
-            </a>
         </div>
     </div>
 </div>

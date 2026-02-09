@@ -23,7 +23,7 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <h2 class="text-xl font-bold">Abonnement #{{ $abonnement->id }}</h2>
-                            <p class="text-blue-100 mt-1">{{ $abonnement->nom_forfait }}</p>
+                            <p class="text-sky-100 mt-1">{{ $abonnement->nom_forfait }}</p>
                         </div>
                         <div class="text-right">
                             @if($abonnement->etat === 'actif' && $abonnement->estActif())
@@ -125,8 +125,8 @@
                 <div class="p-6">
                     @if($abonnement->utilisateur)
                         <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                                <span class="text-xl font-bold text-blue-600">
+                            <div class="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center">
+                                <span class="text-xl font-bold text-sky-600">
                                     {{ strtoupper(substr($abonnement->utilisateur->name, 0, 1)) }}
                                 </span>
                             </div>
@@ -167,7 +167,7 @@
                         </div>
 
                         <div class="mt-6 pt-4 border-t border-gray-200">
-                            <a href="{{ route('users.show', $abonnement->utilisateur) }}" class="inline-flex items-center text-blue-600 hover:text-blue-800 text-sm font-medium">
+                            <a href="{{ route('users.show', $abonnement->utilisateur) }}" class="inline-flex items-center text-sky-600 hover:text-sky-800 text-sm font-medium">
                                 Voir le profil complet
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -201,7 +201,7 @@
                         </div>
                         @if(auth()->user()->role === 'ADMIN')
                         <div class="mt-4 pt-4 border-t border-gray-200">
-                            <a href="{{ route('admin.forfaits.edit', $abonnement->forfait) }}" class="inline-flex items-center text-blue-600 hover:text-blue-800 text-sm font-medium">
+                            <a href="{{ route('admin.forfaits.edit', $abonnement->forfait) }}" class="inline-flex items-center text-sky-600 hover:text-sky-800 text-sm font-medium">
                                 Modifier le forfait
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>

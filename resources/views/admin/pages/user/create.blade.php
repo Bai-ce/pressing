@@ -94,7 +94,7 @@
                     <select
                         id="role"
                         name="role"
-                        class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                        class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
                         required
                     >
                         <option value="">Sélectionner un rôle</option>

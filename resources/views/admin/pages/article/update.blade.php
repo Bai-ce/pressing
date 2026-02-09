@@ -19,7 +19,7 @@
                     <select
                         id="service_id"
                         name="service_id"
-                        class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                        class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
                         required
                     >
                         <option value="">Sélectionner un service</option>
@@ -73,7 +73,7 @@
                                 name="actif"
                                 value="1"
                                 {{ old('actif', $article->actif) ? 'checked' : '' }}
-                                class="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                class="w-5 h-5 rounded border-gray-300 text-sky-600 focus:ring-sky-500"
                             />
                             <span class="text-gray-700">Article actif</span>
                         </label>
@@ -87,7 +87,7 @@
                         id="description"
                         name="description"
                         rows="3"
-                        class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none resize-none"
+                        class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 outline-none resize-none"
                         placeholder="Description de l'article"
                     >{{ old('description', $article->description) }}</textarea>
                     <x-input-error :messages="$errors->get('description')" class="mt-2" />

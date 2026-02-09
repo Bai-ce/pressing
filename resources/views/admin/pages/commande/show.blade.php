@@ -22,7 +22,7 @@
                 Imprimer
             </a>
             @if(auth()->user()->role === 'ADMIN')
-            <a href="{{ route('commandes.edit', $commande) }}" class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white rounded-lg bg-blue-600 hover:bg-blue-700 transition">
+            <a href="{{ route('commandes.edit', $commande) }}" class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white rounded-lg bg-sky-600 hover:bg-sky-700 transition">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
@@ -89,7 +89,7 @@
                     <span class="text-gray-500">Statut</span>
                     @php
                         $statutColors = [
-                            'EN_COURS' => 'bg-blue-50 text-blue-600',
+                            'EN_COURS' => 'bg-sky-50 text-sky-600',
                             'PRET' => 'bg-purple-50 text-purple-600',
                             'LIVREE' => 'bg-green-50 text-green-600',
                             'ANNULEE' => 'bg-red-50 text-red-600',
@@ -111,13 +111,13 @@
             <div class="mt-4 pt-4 border-t border-gray-100">
                 <form action="{{ route('commandes.changer-statut', $commande) }}" method="POST" class="flex gap-2">
                     @csrf
-                    <select name="statut" class="flex-1 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
+                    <select name="statut" class="flex-1 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20">
                         <option value="EN_COURS" {{ $commande->statut === 'EN_COURS' ? 'selected' : '' }}>En cours</option>
                         <option value="PRET" {{ $commande->statut === 'PRET' ? 'selected' : '' }}>Prêt</option>
                         <option value="LIVREE" {{ $commande->statut === 'LIVREE' ? 'selected' : '' }}>Livrée</option>
                         <option value="ANNULEE" {{ $commande->statut === 'ANNULEE' ? 'selected' : '' }}>Annulée</option>
                     </select>
-                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition">
+                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-sky-600 rounded-lg hover:bg-sky-700 transition">
                         Mettre à jour
                     </button>
                 </form>
@@ -217,7 +217,7 @@
                 <tfoot>
                     <tr class="border-t-2 border-gray-200">
                         <td colspan="4" class="py-4 text-right text-lg font-semibold text-gray-800">Total</td>
-                        <td class="py-4 text-right text-xl font-bold text-blue-600">{{ number_format($commande->montantTotal, 0, ',', ' ') }} FCFA</td>
+                        <td class="py-4 text-right text-xl font-bold text-sky-600">{{ number_format($commande->montantTotal, 0, ',', ' ') }} FCFA</td>
                     </tr>
                 </tfoot>
             </table>
@@ -249,7 +249,7 @@
                     <div id="map-collecte" class="h-48 rounded-lg border border-gray-200"></div>
                     <a href="https://www.google.com/maps?q={{ $commande->latitude_collecte }},{{ $commande->longitude_collecte }}"
                        target="_blank"
-                       class="mt-2 inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700">
+                       class="mt-2 inline-flex items-center gap-1 text-sm text-sky-600 hover:text-sky-700">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
@@ -288,7 +288,7 @@
                     <div id="map-livraison" class="h-48 rounded-lg border border-gray-200"></div>
                     <a href="https://www.google.com/maps?q={{ $commande->latitude }},{{ $commande->longitude }}"
                        target="_blank"
-                       class="mt-2 inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700">
+                       class="mt-2 inline-flex items-center gap-1 text-sm text-sky-600 hover:text-sky-700">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>

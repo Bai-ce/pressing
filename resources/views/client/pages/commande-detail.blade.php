@@ -16,7 +16,7 @@
 
 <section class="py-12 bg-gray-50">
     <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto">
+        <div class=" mx-auto">
             <!-- Lien retour -->
             <a href="{{ route('client.commandes') }}" class="inline-flex items-center text-sky-600 hover:text-sky-700 font-medium mb-6">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

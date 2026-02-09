@@ -13,9 +13,38 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
-        $articles = Article::with('service')->latest()->paginate(10);
+        $query = Article::with('service');
+
+        // Filtre par service
+        if ($request->filled('service_id')) {
+            $query->where('service_id', $request->service_id);
+        }
+
+        // Filtre par statut (actif/inactif)
+        if ($request->filled('actif')) {
+            $query->where('actif', $request->actif === '1');
+        }
+
+        // Filtre par prix
+        if ($request->filled('prix_min')) {
+            $query->where('prix', '>=', $request->prix_min);
+        }
+        if ($request->filled('prix_max')) {
+            $query->where('prix', '<=', $request->prix_max);
+        }
+
+        // Recherche par nom ou description
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('nom', 'like', "%{$search}%")
+                  ->orWhere('description', 'like', "%{$search}%");
+            });
+        }
+
+        $articles = $query->latest()->paginate(10)->withQueryString();
         $services = Service::all();
         return view('admin.pages.article.list', compact('articles', 'services'));
     }

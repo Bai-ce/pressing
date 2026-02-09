@@ -60,7 +60,7 @@
                             </svg>
                         </span>
                         <input type="text" placeholder="Search or type command..." id="search-input"
-                            class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 focus:ring-3 focus:outline-hidden h-11 w-full rounded-lg border border-gray-200 bg-transparent py-2.5 pl-12 pr-14 text-sm text-gray-800 placeholder:text-gray-400 xl:w-[430px]" />
+                            class="dark:bg-dark-900 shadow-theme-xs focus:border-sky-300 focus:ring-sky-500/10 focus:ring-3 focus:outline-hidden h-11 w-full rounded-lg border border-gray-200 bg-transparent py-2.5 pl-12 pr-14 text-sm text-gray-800 placeholder:text-gray-400 xl:w-[430px]" />
 
                         <button id="search-button"
                             class="absolute right-2.5 top-1/2 inline-flex -translate-y-1/2 items-center gap-0.5 rounded-lg border border-gray-200 bg-gray-50 px-[7px] py-[4.5px] text-xs -tracking-[0.2px] text-gray-500">

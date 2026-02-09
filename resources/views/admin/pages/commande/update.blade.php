@@ -19,7 +19,7 @@
                 <select
                     id="user_id"
                     name="user_id"
-                    class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                    class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
                     required
                 >
                     <option value="">Sélectionner un client</option>
@@ -39,7 +39,7 @@
                     id="service_id"
                     x-model="selectedServiceId"
                     @change="onServiceChange()"
-                    class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                    class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
                     required
                 >
                     <option value="">Sélectionner un service</option>
@@ -69,7 +69,7 @@
                 <select
                     id="statut"
                     name="statut"
-                    class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                    class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
                     required
                 >
                     <option value="EN_COURS" {{ old('statut', $commande->statut) === 'EN_COURS' ? 'selected' : '' }}>En cours</option>
@@ -92,7 +92,7 @@
                 <button
                     type="button"
                     @click="addLigne()"
-                    class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                    class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-sky-600 rounded-lg hover:bg-sky-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
                     :disabled="!selectedServiceId"
                 >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -121,7 +121,7 @@
                                     :name="'lignes[' + index + '][article_id]'"
                                     x-model="item.article_id"
                                     @change="updatePrix(index)"
-                                    class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                                    class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
                                     required
                                 >
                                     <option value="">Sélectionner un article</option>
@@ -140,7 +140,7 @@
                                     x-model="item.quantite"
                                     @input="updateTotal()"
                                     min="1"
-                                    class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                                    class="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
                                     required
                                 />
                             </div>
@@ -148,7 +148,7 @@
                             <!-- Sous-total -->
                             <div class="md:col-span-3">
                                 <x-input-label :value="__('Sous-total')" />
-                                <p class="mt-1 px-4 py-2.5 font-semibold text-blue-600" x-text="formatPrice(item.prix * item.quantite)"></p>
+                                <p class="mt-1 px-4 py-2.5 font-semibold text-sky-600" x-text="formatPrice(item.prix * item.quantite)"></p>
                             </div>
 
                             <!-- Supprimer -->
@@ -173,10 +173,10 @@
         </div>
 
         <!-- Total -->
-        <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+        <div class="mt-6 p-4 bg-sky-50 rounded-lg border border-sky-200">
             <div class="flex items-center justify-between">
                 <span class="text-lg font-semibold text-gray-800">Total de la commande :</span>
-                <span class="text-2xl font-bold text-blue-600" x-text="formatPrice(total)"></span>
+                <span class="text-2xl font-bold text-sky-600" x-text="formatPrice(total)"></span>
             </div>
         </div>
 

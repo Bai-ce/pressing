@@ -17,9 +17,51 @@ class CommandeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
-        $commandes = Commande::with('user')->latest()->paginate(10);
+        $query = Commande::with('user');
+
+        // Filtre par statut
+        if ($request->filled('statut')) {
+            $query->where('statut', $request->statut);
+        }
+
+        // Filtre par date
+        if ($request->filled('date_debut')) {
+            $query->whereDate('dateCommande', '>=', $request->date_debut);
+        }
+        if ($request->filled('date_fin')) {
+            $query->whereDate('dateCommande', '<=', $request->date_fin);
+        }
+
+        // Filtre par période prédéfinie
+        if ($request->filled('periode')) {
+            switch ($request->periode) {
+                case 'aujourd_hui':
+                    $query->whereDate('dateCommande', today());
+                    break;
+                case 'semaine':
+                    $query->whereBetween('dateCommande', [now()->startOfWeek(), now()->endOfWeek()]);
+                    break;
+                case 'mois':
+                    $query->whereMonth('dateCommande', now()->month)->whereYear('dateCommande', now()->year);
+                    break;
+            }
+        }
+
+        // Recherche par numéro de suivi ou nom client
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('numSuivi', 'like', "%{$search}%")
+                  ->orWhereHas('user', function ($qu) use ($search) {
+                      $qu->where('name', 'like', "%{$search}%")
+                         ->orWhere('telephone', 'like', "%{$search}%");
+                  });
+            });
+        }
+
+        $commandes = $query->latest()->paginate(10)->withQueryString();
         return view('admin.pages.commande.list', compact('commandes'));
     }
 

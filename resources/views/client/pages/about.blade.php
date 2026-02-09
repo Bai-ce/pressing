@@ -29,9 +29,8 @@
             <div class="grid items-center gap-12 lg:grid-cols-2">
                 <div class="relative">
                     <div class="relative rounded-2xl p-8">
-                        <img src="{{ asset('images/about-pressing.jpg') }}" alt="Notre équipe"
-                            class="h-80 w-full rounded-xl object-cover"
-                            onerror="this.src='https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=600&h=400&fit=crop'">
+                        <img src="https://i.pinimg.com/736x/2d/0d/99/2d0d99b0c61c18b30c5b1ed105f5d3c3.jpg" alt="Notre équipe"
+                            class="h-80 w-full rounded-xl object-cover">
                         <div class="absolute -bottom-4 -right-4 rounded-xl bg-sky-500 p-4 text-white shadow-lg">
                             <div class="text-2xl font-bold">100%</div>
                             <div class="text-sm">Satisfaction</div>
@@ -204,34 +203,120 @@
         </div>
     </section>
 
-    <!-- Appel à l'Action -->
-    <section class="bg-gradient-to-r from-sky-600 to-sky-800 py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="mb-4 text-3xl font-bold text-white md:text-4xl">Prêt à Commander ?</h2>
-            <p class="mx-auto mb-8 max-w-2xl text-lg text-white/90">
-                Confiez-nous vos vêtements et profitez d'un service de qualité professionnelle.
-            </p>
-            <div class="flex flex-col justify-center gap-4 sm:flex-row">
-                <a href="{{ route('commander') }}"
-                    class="inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 font-semibold text-sky-600 transition-colors hover:bg-gray-100">
-                    <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
-                        </path>
-                    </svg>
-                    Commander Maintenant
-                </a>
-                <a href="https://wa.me/22997000000" target="_blank"
-                    class="inline-flex items-center justify-center rounded-lg border-2 border-white px-8 py-3 font-semibold text-white transition-colors hover:bg-white/10">
-                    <svg class="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                    </svg>
-                    Contacter sur WhatsApp
-                </a>
+    <!-- Notre Localisation -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-sm font-semibold uppercase tracking-wider text-sky-500">Localisation</span>
+                <h2 class="mb-4 mt-2 text-3xl font-bold text-gray-900 md:text-4xl">Où Nous Trouver</h2>
+                <p class="mx-auto max-w-2xl text-lg text-gray-600">
+                    Rendez-nous visite dans notre local ou bénéficiez de notre service de collecte et livraison à domicile
+                </p>
             </div>
+
+            <div class="grid gap-8 lg:grid-cols-2">
+                <!-- Informations de contact -->
+                <div class=" space-y-6 p-6 bg-gray-50 rounded-2xl">
+                    <!-- Adresse principale -->
+                    <div class="flex items-start gap-4 rounded-xl">
+                        <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-sky-100">
+                            <svg class="h-6 w-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">Adresse</h3>
+                            <p class="text-gray-600">Quartier Cadjèhoun, Rue 123</p>
+                            <p class="text-gray-600">Cotonou, Bénin</p>
+                        </div>
+                    </div>
+
+                    <!-- Horaires -->
+                    <div class="flex items-start gap-4 rounded-xl">
+                        <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-sky-100">
+                            <svg class="h-6 w-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">Horaires d'ouverture</h3>
+                            <p class="text-gray-600">Lundi - Vendredi : 08h00 - 19h00</p>
+                            <p class="text-gray-600">Samedi : 09h00 - 17h00</p>
+                            <p class="text-gray-600">Dimanche : Fermé</p>
+                        </div>
+                    </div>
+
+                    <!-- Téléphone -->
+                    <div class="flex items-start gap-4 rounded-xl">
+                        <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-sky-100">
+                            <svg class="h-6 w-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">Téléphone</h3>
+                            <p class="text-gray-600">+229 97 00 00 00</p>
+                            <p class="text-gray-600">+229 96 00 00 00</p>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="flex items-start gap-4 rounded-xl">
+                        <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-sky-100">
+                            <svg class="h-6 w-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">Email</h3>
+                            <p class="text-gray-600">contact@pressing.bj</p>
+                            <p class="text-gray-600">info@pressing.bj</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carte Google Maps -->
+                <div class="overflow-hidden rounded-2xl shadow-lg">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31698.74055449441!2d2.3912362!3d6.3702928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x102355e5b8c19b61%3A0xe2f8cc2b3a7f0b4d!2sCotonou%2C%20Benin!5e0!3m2!1sen!2sus!4v1707500000000!5m2!1sen!2sus"
+                        width="100%"
+                        height="100%"
+                        style="border:0; min-height: 450px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="w-full">
+                    </iframe>
+                </div>
+            </div>
+
         </div>
     </section>
+
+<!-- Appel à l'Action -->
+<section class="bg-gradient-to-r from-sky-600 to-sky-800 py-16">
+    <div class="container mx-auto px-4 flex flex-col items-center gap-6 md:flex-row md:justify-between">
+        <div class="text-center md:text-left">
+            <h3 class="text-3xl md:text-4xl font-bold text-white">Zone de Livraison</h3>
+            <p class="mt-2 text-sky-100">Nous livrons dans tout Cotonou et ses environs</p>
+            <div class="mt-4 flex flex-wrap justify-center gap-2 md:justify-start">
+                <span class="rounded-full bg-white px-3 py-1 text-sm font-medium text-sky-600 shadow-sm">Cotonou</span>
+                <span class="rounded-full bg-white px-3 py-1 text-sm font-medium text-sky-600 shadow-sm">Abomey-Calavi</span>
+
+            </div>
+        </div>
+        <div class="flex-shrink-0">
+            <a href="{{ route('commander') }}"
+                class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-semibold text-sky-600 transition-colors hover:bg-sky-50 shadow-lg">
+<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                Demander une Collecte
+            </a>
+        </div>
+    </div>
+</section>
 
     @push('scripts')
         <script>

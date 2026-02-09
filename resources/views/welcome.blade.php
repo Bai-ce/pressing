@@ -47,7 +47,7 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <img src="{{ asset('images/after_hero.png') }}" alt="PRESSING" class="rounded-xl shadow-lg w-full object-cover h-96">
+                    <img src="https://i.pinimg.com/736x/2d/0d/99/2d0d99b0c61c18b30c5b1ed105f5d3c3.jpg" alt="PRESSING" class="rounded-xl shadow-lg w-full object-cover h-96">
                 </div>
                 <div>
                     <span class="text-sky-500 font-semibold text-sm uppercase tracking-wider">À Propos de nous</span>
